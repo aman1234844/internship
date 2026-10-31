@@ -169,3 +169,81 @@ dialog::backdrop { background: #17172b88; }
   .filters input { grid-column: auto; }
   .application-item { align-items: flex-start; flex-direction: column; }
 }
+/* Theme toggle button */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-btn {
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--ink);
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* DARK MODE */
+body.dark-mode {
+  --bg: #111322;
+  --white: #1c2032;
+  --ink: #f2f3ff;
+  --muted: #a5a8bd;
+  --border: #30354b;
+  --primary: #918aff;
+  --primary-dark: #aaa5ff;
+  --green: #54d6a0;
+}
+
+body.dark-mode .topbar,
+body.dark-mode footer,
+body.dark-mode .stat-card,
+body.dark-mode .job-card,
+body.dark-mode .form-card,
+body.dark-mode .application-item {
+  background: var(--white);
+  border-color: var(--border);
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background: #252a40;
+  color: #fff;
+  border-color: #3b4159;
+}
+
+body.dark-mode .tag {
+  background: #30354b;
+  color: #d5d7e8;
+}
+
+body.dark-mode .small-btn,
+body.dark-mode .secondary-btn,
+body.dark-mode .profile-btn {
+  background: #34315f;
+  color: #c5c1ff;
+}
+
+body.dark-mode .theme-btn {
+  background: #252a40;
+  color: #fff;
+  border-color: #3b4159;
+}
+
+body.dark-mode dialog {
+  background: #1c2032;
+  color: #f2f3ff;
+}
+
+body.dark-mode .status {
+  background: #493d20;
+  color: #ffd978;
+}
+
+body.dark-mode .progress-track {
+  background: #343950;
+}
