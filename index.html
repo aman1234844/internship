@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InternHub | Internship Portal</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#">Intern<span>Hub</span></a>
+    <nav>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#internships">Internships</a>
+      <a href="#applications">My Applications</a>
+      <a href="#employer">Employer Studio</a>
+    </nav>
+    <button class="profile-btn" id="profileButton">My Profile</button>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="dashboard">
+      <div>
+        <p class="eyebrow">YOUR CAREER STARTS HERE</p>
+        <h1>Find an internship.<br><span>Build your future.</span></h1>
+        <p>Discover opportunities, develop your skills, and take the next step in your career.</p>
+        <a class="primary-btn" href="#internships">Explore internships</a>
+      </div>
+      <div class="hero-art">🚀</div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card"><span>Available internships</span><strong id="totalJobs">0</strong></article>
+      <article class="stat-card"><span>My applications</span><strong id="totalApplications">0</strong></article>
+      <article class="stat-card"><span>Saved internships</span><strong id="totalSaved">0</strong></article>
+    </section>
+
+    <section class="section" id="internships">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">OPPORTUNITIES FOR YOU</p>
+          <h2>Explore internships</h2>
+        </div>
+        <span id="resultCount" class="muted"></span>
+      </div>
+
+      <div class="filters">
+        <input id="searchInput" type="search" placeholder="Search role, company or skill...">
+        <select id="categoryFilter">
+          <option value="">All categories</option>
+          <option>Technology</option>
+          <option>Design</option>
+          <option>Marketing</option>
+          <option>Business</option>
+          <option>Finance</option>
+        </select>
+        <select id="modeFilter">
+          <option value="">All work modes</option>
+          <option>Remote</option>
+          <option>Hybrid</option>
+          <option>On-site</option>
+        </select>
+        <select id="stipendFilter">
+          <option value="">Any stipend</option>
+          <option value="paid">Paid only</option>
+          <option value="unpaid">Unpaid</option>
+        </select>
+        <select id="sortFilter">
+          <option value="recommended">Recommended</option>
+          <option value="stipend">Highest stipend</option>
+          <option value="newest">Newest first</option>
+        </select>
+      </div>
+
+      <div id="internshipList" class="job-grid"></div>
+      <p id="emptyMessage" class="empty hidden">No internships match your search. Try changing your filters.</p>
+    </section>
+
+    <section class="section" id="applications">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">YOUR PROGRESS</p>
+          <h2>My applications</h2>
+        </div>
+        <button class="secondary-btn" id="exportButton">Export CSV</button>
+      </div>
+      <div id="applicationList" class="application-list"></div>
+    </section>
+
+    <section class="section" id="employer">
+      <p class="eyebrow">FOR COMPANIES</p>
+      <h2>Employer Studio</h2>
+      <p class="muted">Create an internship listing and make it visible on this demo portal.</p>
+      <form id="jobForm" class="form-card">
+        <div class="form-grid">
+          <label>Internship title<input name="title" required placeholder="e.g. Frontend Developer Intern"></label>
+          <label>Company name<input name="company" required placeholder="e.g. Bright Labs"></label>
+          <label>Category
+            <select name="category" required>
+              <option>Technology</option><option>Design</option><option>Marketing</option>
+              <option>Business</option><option>Finance</option>
+            </select>
+          </label>
+          <label>Work mode
+            <select name="mode"><option>Remote</option><option>Hybrid</option><option>On-site</option></select>
+          </label>
+          <label>Duration<input name="duration" required placeholder="e.g. 3 months"></label>
+          <label>Monthly stipend (₹)<input name="stipend" type="number" min="0" required placeholder="e.g. 10000"></label>
+        </div>
+        <label>Description<textarea name="description" required rows="4" placeholder="Describe the role and responsibilities..."></textarea></label>
+        <button class="primary-btn" type="submit">Publish internship</button>
+      </form>
+    </section>
+
+    <section class="section" id="profile">
+      <p class="eyebrow">YOUR ACCOUNT</p>
+      <h2>My profile</h2>
+      <div class="form-card">
+        <label>Full name<input id="profileName" placeholder="Enter your name"></label>
+        <label>Email address<input id="profileEmail" type="email" placeholder="Enter your email"></label>
+        <label>Skills<input id="profileSkills" placeholder="HTML, CSS, JavaScript..."></label>
+        <div class="progress-track"><div id="profileProgress"></div></div>
+        <p class="muted" id="profileCompletion">Profile completion: 0%</p>
+        <button class="primary-btn" id="saveProfile">Save profile</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#">Intern<span>Hub</span></a>
+    <p>Connecting students with opportunities. © 2026 InternHub Demo.</p>
+  </footer>
+
+  <dialog id="jobDialog">
+    <button class="dialog-close" id="closeDialog" aria-label="Close">×</button>
+    <div id="dialogContent"></div>
+  </dialog>
+
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
