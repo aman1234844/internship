@@ -469,3 +469,46 @@ function init() {
 }
 
 init();
+// DARK MODE FUNCTIONALITY
+
+const themeToggle = document.getElementById("themeToggle");
+
+// Load previously selected theme
+function loadTheme() {
+  const savedTheme = localStorage.getItem("internhub_theme");
+
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+
+  updateThemeButton();
+}
+
+// Update button text and icon
+function updateThemeButton() {
+  const isDark = document.body.classList.contains("dark-mode");
+
+  themeToggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+
+  themeToggle.setAttribute(
+    "aria-label",
+    isDark ? "Switch to light mode" : "Switch to dark mode"
+  );
+}
+
+// Switch between themes
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+
+  const isDark = document.body.classList.contains("dark-mode");
+
+  localStorage.setItem(
+    "internhub_theme",
+    isDark ? "dark" : "light"
+  );
+
+  updateThemeButton();
+});
+
+// Initialize theme
+loadTheme();
